@@ -2,6 +2,7 @@
 #define H_LOGIC
 #include <chrono>
 #include <cstdlib>
+#include <cstring>
 #include <ctime>
 #include <iostream>
 #include <thread>
@@ -10,6 +11,8 @@ using namespace std;
 
 class Logic {
 private:
+    int numSovp;
+    int numPlace;
     bool game = true;
     bool menu = true;
     bool choose;
@@ -18,6 +21,7 @@ private:
 
 public:
     Logic();
+    Logic(char*, char*);
     void PrintKurs();
     void CreateKurs();
     bool CheckKursSim(int, int);

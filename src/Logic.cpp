@@ -1,9 +1,17 @@
 #include "Logic.hpp"
 
+Logic::Logic(char* a = {}, char* b = {})
+{
+    strcpy(kurs, a);
+    strcpy(myKurs, b);
+}
+
 Logic::Logic()
 {
     game = true;
     menu = true;
+    numSovp = 0;
+    numPlace = 0;
     while (menu) {
         CreateKurs();
         cout << "Быки и коровы" << endl;
@@ -15,6 +23,10 @@ Logic::Logic()
                 cout << "Правильно!";
                 PrintKurs();
                 this_thread::sleep_for(chrono::seconds(5));
+            } else {
+                cout << "Цифр совпало\t\t " << numSovp << endl;
+                cout << "Цифр совпало на своих местах\t " << numPlace << endl
+                     << endl;
             }
         }
         cout << "Играть снова? 1 - yes 0 - no" << endl;
@@ -65,7 +77,8 @@ void Logic::PrintKurs()
 
 bool Logic::CheckMyKurs()
 {
-    int numSovp = 0, numPlace = 0;
+    numSovp = 0;
+    numPlace = 0;
     for (int i = 0; i < const_num_kurs; i++) {
         if (kurs[i] == myKurs[i])
             numPlace++;
@@ -76,8 +89,6 @@ bool Logic::CheckMyKurs()
                 numSovp++;
         }
     }
-    cout << "Цифр совпало\t\t " << numSovp << endl;
-    cout << "Цифр совпало на своих местах\t " << numPlace << endl << endl;
     if (numPlace == const_num_kurs)
         return true;
     return false;
