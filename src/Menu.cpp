@@ -1,8 +1,5 @@
 #include "Menu.hpp"
 
-void Menu::PrintGame()
-{
-}
 void Menu::PrintDeveloper()
 {
     cout << "Разработчик: Михаил Черепанов\nПодождите, скоро вы вернетесь "
@@ -27,20 +24,23 @@ Menu::Menu()
         if (s.size() > 1)
             continue;
         switch (s[0]) {
-        case '1':
+        case '1': {
             system("clear");
-            PrintMenu();
+            Logic masterMind;
+            system("clear");
             break;
-        case '2':
+        }
+        case '2': {
             system("clear");
             PrintDeveloper();
             this_thread::sleep_for(chrono::seconds(3));
             system("clear");
-            PrintMenu();
             break;
-        case '3':
+        }
+        case '3': {
             system("clear");
             return;
+        }
         default:
             break;
         }
