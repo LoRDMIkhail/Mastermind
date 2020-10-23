@@ -1,6 +1,7 @@
 #ifndef H_MENU
 #define H_MENU
 
+#include "Logic.hpp"
 #include <chrono>
 #include <iostream>
 #include <thread>
@@ -15,7 +16,6 @@ private:
 public:
     Menu();
     void PrintMenu();
-    void PrintGame();
     void PrintDeveloper();
 };
 
