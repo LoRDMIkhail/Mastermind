@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Menu{
+class Menu {
 private:
     bool menu = true;
     bool exit = false;
